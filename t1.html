@@ -1,0 +1,27 @@
+<html>
+<head>
+<meta charset="UTF-8" />
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script type="text/javascript">
+//http://dev.dothanhlong.org/services/vungocphuongtrang/?url=http://sv3.trasuavotin.com/count/online.txt
+var gettxtCallback = function(html) {
+	//alert(html);
+	document.getElementById("haha").innerHTML = '<b>Số người online:</b> '+html;
+};
+
+var gettxt = function(url) {
+	var service='https://dothanhlong.org/services/vungocphuongtrang/?url=';
+   $.get(service+url, gettxtCallback);
+};
+
+//gettxt('redrose.txt');
+gettxt('http://sv3.trasuavotin.com/count/online.txt');
+</script>
+</head>
+<body>
+<h2>Gửi Trang - Js get text from file</h2>
+<input type="button" value="Get text" onclick="gettxt('http://sv3.trasuavotin.com/count/online.txt');"/>
+<hr/>
+<div id="haha"></div>
+</body>
+</html>
